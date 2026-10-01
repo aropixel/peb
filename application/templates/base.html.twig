@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <!-- Tarteaucitron for cookie management -->
+        <script src="https://tarteaucitron.io/load.js?domain=www.pebarre.com&uuid=360e8eee10fc8637009e53927b1b2b5549038f7a"></script>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Pierre-Emmanuel Barré - Site Officiel | Nouveau Spectacle "Come Back" & Chroniques Nova{% endblock %}</title>
+        <meta name="description" content="{% block meta_description %}Nouveau spectacle "Come Back", chroniques sur Radio Nova, dates, infos & réservations en ligne. Anciens spectacles, boutique Les délices de Saint Roustan, goodies, chouchous et beignets.{% endblock %}" />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://pebarre.com/" />
+        <meta property="og:title" content="{% block og_title %}Pierre-Emmanuel Barré - Site Officiel | Nouveau Spectacle "Come Back" & Chroniques Nova{% endblock %}" />
+        <meta property="og:description" content="{% block og_description %}Nouveau spectacle "Come Back", chroniques sur Radio Nova, dates, infos & réservations en ligne. Anciens spectacles, boutique Les délices de Saint Roustan, goodies, chouchous et beignets.{% endblock %}" />
+        <meta property="og:image" content="{{ asset('img/ogimg.jpg') }}" />
+        <meta property="og:site_name" content="Pierre-Emmanuel Barré" />
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('ico/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('ico/favicon-96x96.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('ico/favicon-16x16.png') }}">
+        <link rel="shortcut icon" href="{{ asset('ico/favicon.ico') }}">
+
+        <!-- UIkit CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.1/dist/css/uikit.min.css" />
+
+        <!-- FontAwesome -->
+        <script src="https://kit.fontawesome.com/3d756f2b7a.js" crossorigin="anonymous"></script>
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}" media="all">
+
+        {% block stylesheets %}
+        {% endblock %}
+
+        {% block javascripts %}
+            <!-- UIkit JS -->
+            <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.1/dist/js/uikit.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.1/dist/js/uikit-icons.min.js"></script>
+
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+
+        {% set frankenphp_hot_reload = app.request.server.get('FRANKENPHP_HOT_RELOAD') %}
+        {% if frankenphp_hot_reload %}
+        <meta name="frankenphp-hot-reload:url" content="{{ frankenphp_hot_reload }}">
+        <script src="https://cdn.jsdelivr.net/npm/idiomorph"></script>
+        <script src="https://cdn.jsdelivr.net/npm/frankenphp-hot-reload/+esm" type="module"></script>
+        {% endif %}
+    </head>
+    <body>
+        <!-- Navigation -->
+        <div class="uk-section uk-padding-remove menu">
+            <div class="uk-container uk-container-xlarge">
+                <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+                    <div class="uk-navbar-right">
+                        <ul class="uk-navbar-nav uk-visible@m">
+                            <li {% if app.request.attributes.get('_route') == 'home' %}class="uk-active"{% endif %}><a href="{{ path('home') }}" aria-label="Ouvre la page Home" class="nav-link nav-link-ltr">Home</a></li>
+                            <li><a href="https://pebarre.bleucitron.net/" target="_blank" aria-label="Ouvre la page Tournée dans un nouvel onglet" class="nav-link nav-link-ltr">Tournée</a></li>
+                            <li {% if app.request.attributes.get('_route') == 'spectacles' %}class="uk-active"{% endif %}><a href="{{ path('spectacles') }}" aria-label="Ouvre la page Spectacle" class="nav-link nav-link-ltr">Spectacles</a></li>
+                            <li {% if app.request.attributes.get('_route') == 'nova' %}class="uk-active"{% endif %}><a href="{{ path('nova') }}" aria-label="Ouvre la page La Dernière" class="nav-link nav-link-ltr">La dernière</a></li>
+                            <li><a href="https://enlyseeboutique.fr/pages/la-boutique-de-saint-roustan" target="_blank" aria-label="Ouvre la page boutique dans un nouvel onglet" class="nav-link nav-link-ltr">Boutique</a></li>
+                            <li {% if app.request.attributes.get('_route') == 'contacts' %}class="uk-active"{% endif %}><a href="{{ path('contacts') }}" aria-label="Ouvre la page Contacts" class="nav-link nav-link-ltr">Contacts</a></li>
+                        </ul>
+                        <ul class="uk-navbar-nav uk-hidden@m">
+                            <li><a href="#modal-menu" class="burger" aria-label="Ouvre le menu mobile" uk-toggle><i class="grow fa-sharp fa-solid fa-bars"></i></a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        {% block body %}
+            {% block content %}{% endblock %}
+        {% endblock %}
+
+        <!-- Footer -->
+        <div class="uk-section footer">
+            <div class="uk-container uk-text-center">
+
+                <div class="uk-margin-medium social">
+                    <a href="https://twitter.com/Sale_Con" target="_blank" aria-label="Ouvre la page X Twitter dans un nouvel onglet"><i class="grow fa-brands fa-x-twitter"></i></a>
+                    <a href="https://www.instagram.com/pierreemmanuelbarre/" aria-label="Ouvre la page Instagram dans un nouvel onglet" target="_blank"><i class="grow fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/AllezTousVousFaireEnculer/" aria-label="Ouvre la page Facebook dans un nouvel onglet" target="_blank"><i class="grow fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.youtube.com/channel/UCTgIyiuI7S_VZ4E3FinKs0w" aria-label="Ouvre la page YouTube dans un nouvel onglet" target="_blank"><i class="grow fa-brands fa-youtube"></i></a>
+                </div>
+
+                <div class="uk-margin-medium bt-nl">
+                    <a href="#" aria-label="Ouvre la page Newsletter">
+                        <button class="uk-button uk-button-default"><i>ne pas cliquer ici</i></button>
+                    </a>
+                </div>
+
+                <div uk-navbar>
+                    <div class="uk-navbar-center">
+                        <ul class="uk-navbar-nav">
+                            <li {% if app.request.attributes.get('_route') == 'cgu' %}class="uk-active"{% endif %}><a href="{{ path('cgu') }}">CGU</a></li>
+                            <li {% if app.request.attributes.get('_route') == 'politique_confidentialite' %}class="uk-active"{% endif %}><a href="{{ path('politique_confidentialite') }}">Politique de confidentialité</a></li>
+                            <li {% if app.request.attributes.get('_route') == 'politique_cookies' %}class="uk-active"{% endif %}><a href="{{ path('politique_cookies') }}">Paramètres des cookies</a></li>
+                            <li {% if app.request.attributes.get('_route') == 'mentions_legales' %}class="uk-active"{% endif %}><a href="{{ path('mentions_legales') }}">Mentions légales</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="uk-margin-top credit">
+                    © {{ "now"|date("Y") }} LA PROD - Réalisé par <a href="https://www.aropixel.com/" target="_blank">AROPIXEL</a>
+                </div>
+
+            </div>
+        </div>
+    </body>
+</html>

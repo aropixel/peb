@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+<div class="uk-section heading">
+    <div class="uk-container uk-container-xsmall uk-text-center">
+        <h1>Merci de votre inscription !</h1>
+    </div>
+</div>
+
+<div class="uk-section main-content newsletter">
+    <div class="uk-container uk-text-center">
+
+        <div>
+            <div class="uk-margin-medium-bottom bt-std">
+                <div class="title">
+                    <i class="fa-sharp fa-solid fa-envelope uk-margin-small-right"></i> Inscription confirmée
+                </div>
+            </div>
+            <div>
+                <p>Vous avez été ajouté(e) à notre newsletter avec succès ! </p>
+
+                <p>
+                    Vous recevrez prochainement nos actualités et offres exclusives.<br />
+                    Bienvenue dans notre communauté !
+                </p>
+
+                <div class="uk-margin-medium">
+                    <a href="{{ path('home') }}" class="uk-button uk-button-default">Retour à l'accueil</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

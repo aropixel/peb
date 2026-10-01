@@ -1,0 +1,756 @@
+
+@font-face {
+    font-family: 'pebblack';
+    src: url('../font/swiss721black-webfont.woff2') format('woff2'),
+    url('../font/swiss721black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'pebbold';
+    src: url('../font/swissb-webfont.woff2') format('woff2'),
+    url('../font/swissb-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'pebregular';
+    src: url('../font/swiss-webfont.woff2') format('woff2'),
+    url('../font/swiss-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'peblight';
+    src: url('../font/swissl-webfont.woff2') format('woff2'),
+    url('../font/swissl-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+:root{
+    --blue-dark: #0B0F26;
+    --blue-normal: #3B6386;
+}
+
+/*
+::selection {
+    background: #ffffff;
+    color: var(--blue-xdark);
+}
+::-moz-selection {
+    background: #ffffff;
+    color: var(--blue-xdark);
+}
+*/
+
+body{
+    font-family: 'pebregular';
+    background-image: url("../img/bkg-gradient.webp");
+    background-repeat: repeat;
+    background-size: cover;
+    background-color: var(--blue-normal);
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 1.2;
+    min-height: 100vh;
+}
+body b, body strong{
+    font-family: 'pebbold';
+}
+a {
+    color: #bbbbbb;
+}
+a:hover {
+    color: #ffffff;
+}
+.bkg-dark{
+    background-color: var(--blue-dark);
+}
+
+.bt-std .uk-button-default {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    font-family: 'pebblack';
+    font-size: 16px;
+    line-height: 1.2;
+    padding: 10px 20px;
+}
+.bt-std .uk-button-default:hover {
+    background-color: #ffffff;
+    color: var(--blue-dark);
+    border: 1px solid #ffffff;
+}
+
+/* Underline styles */
+a.link {
+    display: inline-block;
+    position: relative;
+    padding: 3px 0;
+    width: auto;
+}
+
+/* Fade in */
+a.link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #ffffff;
+    opacity: 0;
+    transition: opacity 300ms, transform 300ms;
+}
+
+a.link:hover::after,
+a.link:focus::after {
+    opacity: 1;
+    transform: translate3d(0, 3px, 0);
+}
+
+a.crypted:after {
+    content: attr(data-name) "@" attr(data-domain) "." attr(data-tld);
+}
+
+.grow { transition: all .1s ease-in-out; }
+.grow:hover { transform: scale(1.1); }
+
+
+/**** MENU - START ****/
+
+.menu .uk-navbar-item, .menu .uk-navbar-nav>li>a, .menu .uk-navbar-toggle {
+    font-family: 'pebregular';
+    color: #ffffff;
+    font-size: 17px;
+}
+.menu .nav-link {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 30px 0px;
+    display: inline-block;
+    position: relative;
+}
+.menu .nav-link::before {
+    transition: 300ms;
+    height: 2px;
+    content: "";
+    position: absolute;
+    background-color: #ffffff;
+}
+.menu .nav-link-ltr::before {
+    width: 0%;
+    bottom: 22px;
+}
+.menu .nav-link-ltr:hover::before,
+.menu .uk-navbar-nav>li.uk-active>a.nav-link-ltr::before{
+    width: 100%;
+}
+
+.menu .uk-navbar-nav>li>a.burger{
+    font-size: 32px;
+    margin-right: 10px;
+}
+
+
+#modal-menu{
+    background-color: var(--blue-dark);
+    min-height:100vh;
+    color: #ffffff;
+    padding: 20px;
+
+}
+#modal-menu .uk-modal-dialog{
+    background-color: transparent;
+    color: #ffffff;
+    height: calc(100vh - 40px);
+    overflow: auto;
+}
+#modal-menu .uk-modal-close-full {
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    background: transparent;
+    color: #ffffff;
+    font-size: 28px;
+}
+#modal-menu .uk-modal-close-full:hover {
+    color: var(--blue-normal);
+}
+#modal-menu .uk-modal-close-full svg{
+    display: none;
+}
+#modal-menu .title{
+    font-family: 'pebblack';
+    font-size: 18px;
+    line-height: 1.2;
+    color: #ffffff;
+}
+#modal-menu .uk-nav-default {
+    font-family: 'pebregular';
+    font-size: 22px;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+#modal-menu .uk-nav-default>li>a {
+    color: #ffffff;
+    padding: 15px 0;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+#modal-menu .uk-nav-default>li.uk-active>a.link::after {
+    opacity: 1;
+    transform: translate3d(0, 3px, 0);
+}
+
+#modal-menu a.link::after {
+    bottom: 14px;
+}
+
+#modal-menu .social a{
+    font-size: 24px;
+    margin: 0 5px;
+    padding: 5px;
+    color: #ffffff;
+}
+/**** MENU - END ****/
+
+
+/**** FOOTER - START ****/
+
+.footer .social a{
+    font-size: 28px;
+    margin: 0 5px;
+    padding: 5px;
+    color: #ffffff;
+}
+.footer .bt-nl .uk-button-default {
+    background-color: #ffffff;
+    color: var(--blue-dark);
+    border: 1px solid #ffffff;
+    font-family: 'pebblack';
+    font-size: 16px;
+}
+.footer .bt-nl .uk-button-default:hover {
+    background-color: var(--blue-dark);
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    font-family: 'pebblack';
+    font-size: 16px;
+}
+
+.footer .uk-navbar-item, .footer .uk-navbar-nav>li>a, .footer .uk-navbar-toggle{
+    min-height: 0;
+    font-family: 'peblight';
+    font-size: 12px;
+}
+.footer .uk-navbar-nav>li>a {
+    color: #ffffff;
+    text-transform: none;
+}
+.footer .uk-navbar-nav>li.uk-active>a, .footer .uk-navbar-nav>li>a:hover {
+    text-decoration: underline;
+}
+
+.footer .credit{
+    font-size: 12px;
+    font-family: 'peblight';
+}
+.footer .credit a{
+    font-family: 'pebbold';
+    color: #ffffff;
+}
+@media only screen and (max-width: 640px) {
+    .footer .uk-navbar-nav {
+        display: block;
+    }
+    .footer .uk-navbar-nav>li>a {
+        margin: 0 0 10px 0;
+    }
+}
+
+/**** FOOTER - END ****/
+
+/**** HEADING - START ****/
+
+.heading h1{
+    font-family: 'pebblack';
+    font-size: 32px;
+    line-height: 1.2;
+    color: #ffffff;
+    margin: 0;
+    text-transform: uppercase;
+}
+.heading .nova img{
+    width: 90px;
+}
+.heading h1 span{
+    display: inline-block;
+}
+.heading h1 span span{
+    display: inline-block;
+    background-color: #ffffff;
+    color: var(--blue-dark);
+    padding: 0 5px;
+}
+
+@media only screen and (max-width: 640px) {
+    .heading h1{
+        font-family: 'pebblack';
+        font-size: 24px;
+        line-height: 1.2;
+        color: #ffffff;
+        margin: 0;
+        text-transform: uppercase;
+    }
+}
+/**** HEADING - END ****/
+
+/**** MAIN CONTENT - START ****/
+
+.main-content {
+    background-color: var(--blue-dark);
+}
+
+/**** MAIN CONTENT - END ****/
+
+/**** HOME CONTENT - START ****/
+
+.home-content .peb{
+    background: url("../img/peb.webp") no-repeat left bottom;
+    background-size: auto 100%;
+}
+.home-content .header-come-back{
+    font-family: 'peblight';
+    font-size: 14px;
+}
+.home-content .header-come-back h1{
+    font-family: 'pebblack';
+    font-size: 24px;
+    line-height: 1.2;
+    color: #ffffff;
+    margin: 0;
+}
+.home-content .title-come-back{
+    font-family: 'peblight';
+    font-size: 18px;
+}
+.home-content .title-come-back h2{
+    font-family: 'pebblack';
+    font-size: 56px;
+    line-height: 1.2;
+    color: #ffffff;
+    margin: 0;
+}
+.home-content .focus{
+    font-family: 'pebregular';
+    font-size: 16px;
+    /*border: 1px solid #ffffff;*/
+    width: auto;
+    display: inline-block;
+    margin: 0 auto;
+    padding: 20px 30px;
+}
+.home-content .focus .title{
+    font-family: 'pebblack';
+    font-size: 24px;
+    text-transform: uppercase;
+}
+.home-content .focus img.bataclan{
+    width: 200px;
+    margin-bottom: 5px;
+}
+.home-content .focus .dates-bataclan{
+    width: 200px;
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'pebbold';
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.home-content .focus .mois-bataclan{
+    width: 200px;
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'pebbold';
+    font-size: 23px;
+    text-transform: uppercase;
+}
+
+.home-content .new-dates {
+    text-align: center;
+    font-family: 'pebblack';
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    background-color: var(--blue-normal);
+    color: #ffffff;
+}
+
+.home-content .complet{
+    text-align: center;
+    font-family: 'pebblack';
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    background-color: #c53139;
+    color: #ffffff;
+    rotate: -10deg;
+    top:20px
+}
+.home-content .tour{
+    font-family: 'pebblack';
+    font-size: 18px;
+    text-transform: uppercase;
+}
+.home-content .tour a{
+    font-family: 'pebregular';
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-decoration: none;
+}
+.home-content .nova img{
+    width: 70px;
+}
+.home-content .auguste{
+    max-width : 180px;
+    font-size: 11px;
+    margin: 0 0 30px 30px;
+    text-transform: uppercase;
+    border: 1px solid #ffffff;
+    padding: 10px;
+}
+.home-content .auguste svg{
+    width: 120px;
+    fill: #ffffff;
+    margin-bottom: 10px
+}
+
+@media only screen and (max-width: 1200px) {
+    .home-content .peb {
+        background: url("../img/peb.webp") no-repeat -100px bottom;
+        background-size: auto 100%;
+    }
+}
+@media only screen and (max-width: 960px) {
+    .home-content .peb {
+        display: block;
+        min-height: 680px;
+        background: url("../img/peb.webp") no-repeat center bottom;
+        background-size: auto 600px;
+        overflow-x: hidden;
+    }
+    .home-content .title-come-back {
+        font-family: 'peblight';
+        font-size: 16px;
+    }
+    .home-content .title-come-back h2 {
+        font-family: 'pebblack';
+        font-size: 48px;
+        line-height: 1.2;
+        color: #ffffff;
+        margin: 0;
+    }
+    .home-content .focus {
+        font-family: 'pebregular';
+        font-size: 14px;
+        /*border: 1px solid #ffffff;*/
+        width: auto;
+        display: inline-block;
+        margin: 0 auto;
+        padding: 15px 20px;
+    }
+    .home-content .focus .title {
+        font-family: 'pebblack';
+        font-size: 20px;
+        text-transform: uppercase;
+    }
+    .home-content .auguste{
+        max-width : 160px;
+        font-size: 11px;
+        margin: 0 0 40px 0;
+        text-transform: uppercase;
+        border: 1px solid #ffffff;
+        padding: 10px;
+    }
+    .home-content .auguste svg{
+        width: 100px;
+        fill: #ffffff;
+        margin-bottom: 10px
+    }
+}
+
+/**** HOME CONTENT - END ****/
+
+
+/**** HOME SLIDER - START ****/
+
+.home-slider {
+    background-color: var(--blue-dark);
+    font-size: 12px;
+    line-height: 1.2;
+    color: #ffffff;
+}
+.home-slider .heading {
+    font-family: 'pebblack';
+}
+.home-slider .heading .logo {
+    padding-right: 10px;
+    border-right: 1px solid #ffffff;
+}
+.home-slider .heading img {
+    width: 110px;
+}
+.home-slider .heading h3 {
+    font-family: 'pebblack';
+    font-size: 18px;
+    color: #ffffff;
+    margin: 0;
+}
+.home-slider a{
+    font-family: 'pebregular';
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-decoration: none;
+}
+.home-slider .uk-overlay-primary{
+    color: #ffffff;
+    background: rgba(11, 15, 38, .8);
+}
+.home-slider .play {
+    font-size: 56px;
+}
+.home-slider svg {
+    display: none;
+}
+.home-slider .uk-slidenav {
+    font-size: 24px;
+    margin-top: 0;
+}
+.home-slider .uk-slidenav:hover {
+    color: var(--blue-normal);
+}
+
+@media only screen and (max-width: 960px) {
+    .home-slider {
+        background-color: var(--blue-normal);
+        font-size: 12px;
+        line-height: 1.2;
+        color: #ffffff;
+    }
+    .home-slider .heading .logo {
+        padding-right: 0;
+        border-right: 0;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .home-slider .uk-container {
+        padding: 0;
+    }
+    .home-slider .uk-grid {
+        margin-left: 0px;
+    }
+}
+
+/**** HOME SLIDER - END ****/
+
+
+/**** SPECTACLE - START ****/
+
+.spectacle .poster img{
+    max-width: 400px;
+    margin: 0 auto;
+}
+.spectacle h2{
+    font-family: 'pebblack';
+    font-size: 52px;
+    line-height: 1.2;
+    color: #ffffff;
+    margin: 0;
+    text-transform: uppercase;
+}
+.spectacle h3{
+    font-family: 'peblight';
+    font-size: 20px;
+    color: #ffffff;
+    margin: 0;
+}
+.spectacle p.info-video{
+    font-size: 14px;
+}
+@media only screen and (max-width: 640px) {
+    .spectacle h2{
+        font-family: 'pebblack';
+        font-size: 32px;
+        line-height: 1.2;
+        color: #ffffff;
+        margin: 0;
+        text-transform: uppercase;
+    }
+    .spectacle h3{
+        font-family: 'peblight';
+        font-size: 18px;
+        color: #ffffff;
+        margin: 0;
+    }
+}
+
+/**** SPECTACLE - END ****/
+
+
+
+/**** GRILLE VIDEO - START ****/
+
+
+.video-grid .uk-subnav-pill>*>:first-child {
+    font-family: 'pebblack';
+    padding: 5px 10px;
+    background: 0 0;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    font-size: 16px;
+    line-height: 1.2;
+    margin: 5px 0;
+}
+.video-grid .uk-subnav-pill>*>:first-child:hover,
+.video-grid .uk-subnav-pill>.uk-active>a {
+    font-family: 'pebblack';
+    background-color: #ffffff;
+    color: var(--blue-dark);
+    border: 1px solid #ffffff;
+    font-size: 16px;
+    line-height: 1.2;
+}
+
+.video-grid {
+    font-family: 'pebregular';
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-decoration: none;
+}
+.video-grid .uk-overlay-primary{
+    color: #ffffff;
+    background: rgba(11, 15, 38, .8);
+}
+.video-grid .play {
+    font-size: 56px;
+}
+.video-grid svg {
+    display: none;
+}
+.video-grid a{
+    text-decoration: none;
+}
+@media only screen and (max-width: 640px) {
+    .video-grid .uk-subnav-pill>*>:first-child {
+        font-family: 'pebblack';
+        padding: 5px 10px 3px 10px;
+        background: 0 0;
+        color: #ffffff;
+        border: 1px solid #ffffff;
+        font-size: 14px;
+        line-height: 1.2;
+    }
+    .video-grid .uk-subnav-pill>*>:first-child:hover,
+    .video-grid .uk-subnav-pill>.uk-active>a {
+        font-family: 'pebblack';
+        background-color: #ffffff;
+        color: var(--blue-dark);
+        border: 1px solid #ffffff;
+        font-size: 14px;
+        line-height: 1.2;
+    }
+}
+
+/**** GRILLE VIDEO - END ****/
+
+
+/**** CONTACTS - START ****/
+
+.contacts h2{
+    font-family: 'pebblack';
+    font-size: 18px;
+    line-height: 1.4;
+    color: #ffffff;
+    margin:0;
+    text-transform: uppercase;
+}
+.contacts h3{
+    font-family: 'pebbold';
+    font-size: 16px;
+    line-height: 1.4;
+    color: #ffffff;
+    margin:0;
+}
+.contacts a{
+    color: #ffffff;
+}
+
+/**** CONTACTS - END ****/
+
+/**** NEWSLETTER - START ****/
+
+.newsletter a {
+    font-family: 'pebregular';
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-decoration: none;
+}
+.newsletter .title {
+    font-family: 'pebblack';
+    font-size: 18px;
+    line-height: 1.2;
+    color: #ffffff;
+    margin: 0;
+    text-transform: uppercase
+}
+
+#modal-newsletter a {
+    color: var(--blue-normal);
+}
+#modal-newsletter a:hover {
+    color: var(--blue-dark);
+}
+#modal-newsletter{
+    color: var(--blue-dark);
+}
+#modal-newsletter h2{
+    font-family: 'pebblack';
+    font-size: 24px;
+    line-height: 1.2;
+    color: var(--blue-dark);
+}
+
+/**** NEWSLETTER - END ****/
+
+
+
+#modal-default{
+    color: var(--blue-normal);
+}
+#modal-default h2 {
+    font-family: 'pebblack';
+    font-size: 20px;
+    line-height: 1.2;
+    color: var(--blue-normal);
+    margin: 20px 0 0 0;
+    text-transform: uppercase;
+}
+#modal-default img {
+    max-height: 400px;
+}
+#modal-default .uk-button-primary {
+    background-color: var(--blue-normal);
+    color: #fff;
+    border: 1px solid transparent;
+}
+#modal-default .uk-button-primary:hover {
+    background-color: var(--blue-dark);
+    color: #fff;
+}

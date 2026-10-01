@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+<div class="uk-section heading">
+    <div class="uk-container uk-container-xsmall uk-text-center">
+        <h1>Pierre-Emmanuel Barré dans <span>«La dernière» - Saison #1</span></h1>
+        <div class="uk-margin-top nova">
+            <img src="{{ asset('img/radio-nova.png') }}" alt="Logo Radio Nova">
+        </div>
+        <div class="video-grid">
+            <div class="uk-flex uk-flex-center uk-text-center uk-margin-medium-top">
+                <ul class="uk-subnav uk-subnav-pill uk-flex uk-flex-center">
+                    <li><a href="{{ path('nova') }}">Saison #3</a></li>
+                    <li><a href="{{ path('nova_2025_2026') }}">Saison #2</a></li>
+                    <li class="uk-active" uk-filter-control><a href="#">Saison #1</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="uk-section main-content video-grid">
+    <div class="uk-container uk-container-large uk-text-center">
+        <p>Contenu des vidéos de la Saison #1</p>
+    </div>
+</div>
+{% endblock %}

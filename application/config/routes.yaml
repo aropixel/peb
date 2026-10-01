@@ -1,0 +1,16 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.yaml"
+
+aropixel_admin:
+    resource: '@AropixelAdminBundle/Resources/config/routes.yaml'
+    prefix: /admin
+
+aropixel_admin_download:
+    resource: '@AropixelAdminBundle/Resources/config/routes/download.yaml'
+    prefix: /admin

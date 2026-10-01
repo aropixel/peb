@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+<div class="uk-section heading">
+    <div class="uk-container uk-container-xsmall uk-text-center">
+        <h1>Spectacles</h1>
+    </div>
+</div>
+
+<div class="uk-section main-content spectacle">
+    <div class="uk-container">
+
+        <div class="uk-grid-large uk-grid-match uk-child-width-1-2@m uk-flex-center uk-flex-middle uk-text-center" uk-grid>
+            <div class="poster">
+                <img src="{{ asset('spectacles/come-back.webp') }}" alt="Come Back">
+            </div>
+            <div>
+                <h2>Come-back</h2>
+                <h3>Une pièce de Pierre-Emmanuel Barré et Arsen</h3>
+                <div class="uk-margin-medium-top">
+                    <p>
+                        2031. Ca y est : Pierre-Emmanuel Barré est has-been.<br/>
+                        Pour revenir sur le devant de la scène, il décide de créer un nouveau spectacle.<br/>
+                        Mais pour dire quoi ?
+                    </p>
+                </div>
+                <div class="uk-margin-medium bt-std">
+                    <a href="https://pebarre.bleucitron.net/" target="_blank" aria-label="Ouvre la page Tournée dans un nouvel onglet">
+                        <button class="uk-button uk-button-default"><i>En tournée</i></button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <hr class="uk-margin-large">
+
+        <div class="uk-grid-large uk-grid-match uk-child-width-1-2@m uk-flex-center uk-flex-middle uk-text-center" uk-grid>
+            <div class="poster">
+                <img src="{{ asset('spectacles/pfff.webp') }}" alt="Pfff...">
+            </div>
+            <div>
+                <h2>Pfff...</h2>
+                <h3>Une conférence de Pierre-Emmanuel Barré</h3>
+                <p>
+                    Pierre-Emmanuel Barré donne son avis sur tout avec comme modeste objectif que vous repartiez moins con et qu'il reparte plus riche.
+                </p>
+                <div>
+                    <iframe src="https://www.youtube-nocookie.com/embed/HBJBxuIs6g0?autoplay=0&showinfo=0&rel=0&modestbranding=0&playsinline=1" width="1920" height="1080" allowfullscreen uk-responsive uk-video="autoplay :false; automute: false"></iframe>
+                </div>
+                <p class="info-video">
+                    <b>Pfff… Une conférence de Pierre-Emmanuel Barré & Guests au Zenith de Paris</b><br/>
+                    Enregistré au Zénith de Paris - La Villette (Janvier 2023)<br/>
+                    Guests : Giedré , Guillaume Meurice, Benjamin Tranié, Aymeric Lompret.
+                </p>
+            </div>
+        </div>
+
+        <hr class="uk-margin-large">
+
+        <div class="uk-grid-large uk-grid-match uk-child-width-1-2@m uk-flex-center uk-flex-middle uk-text-center" uk-grid>
+            <div class="poster">
+                <img src="{{ asset('spectacles/nouveau-spectacle.webp') }}" alt="Nouveau Spectacle">
+            </div>
+            <div>
+                <h2>Nouveau spectacle</h2>
+
+                <div class="uk-margin-top">
+                    <iframe src="https://www.youtube-nocookie.com/embed/vJBEOalQPQg?autoplay=0&showinfo=0&rel=0&modestbranding=0&playsinline=1" width="1920" height="1080" allowfullscreen uk-responsive uk-video="autoplay :false; automute: false"></iframe>
+                </div>
+                <p class="info-video">
+                    <b>Pierre-Emmanuel Barré - Grand Rex (Paris) - mai 2019</b><br/>
+                    Captation intégrale du spectacle de Pierre-Emmanuel Barré au Grand Rex de Paris en mai 2019. Le spectacle (intitulé "Nouveau spectacle"), a tourné partout en France entre 2017 et 2019, avant l'ultime séance au Grand Rex. Bon visionnage et bon spectacle!
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

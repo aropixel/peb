@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+<div class="uk-section heading">
+    <div class="uk-container uk-container-xsmall uk-text-center">
+        <h1>Ha ! Je savais que vous alliez cliquer quand même. Que vous êtes prévisibles.</h1>
+    </div>
+</div>
+
+<div class="uk-section main-content newsletter">
+    <div class="uk-container">
+
+        <div class="uk-grid-large uk-grid-divider uk-child-width-1-2@m uk-flex-center uk-text-center" uk-grid>
+            <div>
+                <div class="uk-margin-medium-bottom bt-std">
+                    <a href="#modal-newsletter" uk-toggle>
+                        <button class="uk-button uk-button-default"><i><i class="fa-sharp fa-solid fa-envelope uk-margin-small-right"></i> s'inscrire à la newsletter</i></button>
+                    </a>
+                </div>
+                <div>
+                    <table class="uk-table uk-text-left">
+                        <tbody>
+                        <tr>
+                            <td class="uk-table-shrink uk-text-right"><i class="fa-sharp fa-regular fa-check"></i></td>
+                            <td class="uk-table-shrink">Je recevrai des blagues gratos.</td>
+                        </tr>
+                        <tr>
+                            <td class="uk-table-shrink uk-text-right"><i class="fa-sharp fa-regular fa-check"></i></td>
+                            <td>Je recevrai des infos secrètes.</td>
+                        </tr>
+                        <tr>
+                            <td class="uk-table-shrink uk-text-right"><i class="fa-sharp fa-regular fa-check"></i></td>
+                            <td>Je recevrai des nudes.</td>
+                        </tr>
+                        <tr>
+                            <td class="uk-table-shrink uk-text-right"><i class="fa-sharp fa-regular fa-check"></i></td>
+                            <td>Je recevrai des ondes positives.</td>
+                        </tr>
+                        <tr>
+                            <td class="uk-table-shrink uk-text-right"><i class="fa-sharp fa-regular fa-check"></i></td>
+                            <td>Je recevrai un remède contre le cancer.</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="uk-margin-medium">
+                    <a class="link" href="#modal-newsletter" uk-toggle>
+                        Je m'inscris <i class="uk-margin-small-left fa-sharp fa-regular fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Newsletter Modal -->
+<div id="modal-newsletter" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <h2 class="uk-modal-title">Newsletter</h2>
+        <form class="uk-form-stacked" method="post" action="/newsletter/inscription">
+
+            <div class="uk-margin">
+                <label class="uk-form-label" for="form-stacked-text">Veuillez renseigner votre adresse email pour vous inscrire*</label>
+                <div class="uk-form-controls">
+                    <input class="uk-input" id="form-stacked-text" type="email" name="pvnot" placeholder="abc@xyz.com">
+                </div>
+            </div>
+            <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+
+                <label><input class="uk-checkbox" type="checkbox" name="hp">
+                    J'accepte de recevoir vos actualités par courrier électronique et confirme avoir pris connaissance de votre <a href="{{ path('politique_confidentialite') }}" aria-label="Aller à la page Politique de confidentialité">Politique de confidentialité</a>.
+                </label>
+            </div>
+            <div class="uk-margin uk-text-center">
+                <button class="uk-button uk-button-secondary">Je m'abonne</button>
+            </div>
+
+        </form>
+        <p class="legal">
+            (*) Champ obligatoire
+        </p>
+        <p class="legal">
+            Vous pouvez vous désinscrire à tout moment à l'aide des liens de désinscription dans nos newsletters ou en nous contactant à l'adresse news@bleucitron.net.
+        </p>
+    </div>
+</div>
+{% endblock %}

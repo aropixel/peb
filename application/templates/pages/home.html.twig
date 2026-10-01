@@ -1,0 +1,313 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+<div class="uk-section uk-padding-remove home-content">
+
+    <!--- DESKTOP VIEW - START -->
+    <div class="uk-container uk-container-large peb uk-visible@m">
+        <div class="" uk-grid>
+            <div class="uk-width-1-2@m uk-inline">
+                <div class="uk-position-bottom-left uk-text-center">
+                </div>
+            </div>
+            <div class="uk-width-1-2@m uk-text-center">
+                <div class="uk-margin-medium-top uk-margin-medium-bottom header-come-back">
+                    <div>LA PROD et MISKINE présentent</div>
+                    <h1>Pierre-Emmanuel Barré</h1>
+                    <div>dans</div>
+                </div>
+                <div class="uk-margin-medium-bottom title-come-back">
+                    <h2>COME-BACK</h2>
+                    <div>Une pièce de Pierre-Emmanuel Barré et Arsen</div>
+                </div>
+                <div class="uk-margin-medium-bottom focus">
+                    <div class="">
+
+                        <a href="https://pierreemmanuelbarre.francebillet.com/artist/pierre-emmanuel-barre/pierre-emmanuel-barre-come-back-le-bataclan-paris-3796884/" target="_blank">
+                        <img class="bataclan" src="{{ asset('home/bataclan.png') }}" alt="Logo Bataclan">
+                        </a>
+
+                        <div class="uk-margin-top uk-margin-small-bottom">
+                            <div class="uk-inline">
+                                <div class="dates-bataclan">
+                                    29-30-31 oct. 2026
+                                </div>
+                                <div class="complet uk-position-center" style="top:3px">
+                                    COMPLET
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-margin-small-bottom">
+                            <div class="uk-inline">
+                                <div class="dates-bataclan">
+                                    16-17-18 avril 2026
+                                </div>
+                                <div class="dates-bataclan">
+                                    & 14-15-16 mai 2026
+                                </div>
+                                <div class="complet uk-position-center">
+                                    COMPLET
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="uk-inline uk-text-justify">
+                                <div class="dates-bataclan">
+                                    11-12-13 & 18-19-20
+                                </div>
+                                <div class="mois-bataclan">
+                                    DECEMBRE 2025
+                                </div>
+                                <div class="complet uk-position-center">
+                                    COMPLET
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="uk-margin-medium-bottom tour">
+                    <div><i>EN TOURNée</i></div>
+                    <div>
+                        <a class="link" href="https://pebarre.bleucitron.net/" aria-label="Ouvre la page Tournée dans un nouvel onglet" target="_blank">
+                            Toutes les dates <i class="uk-margin-small-left fa-sharp fa-regular fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="uk-margin-large-bottom nova">
+                    <img src="{{ asset('img/radio-nova.png') }}" alt="Logo Radio Nova">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--- DESKTOP VIEW - END -->
+
+    <!--- MOBILE VIEW - START -->
+    <div class="uk-container uk-container-large peb uk-inline uk-text-center uk-hidden@m">
+        <div class="uk-margin-medium-top uk-margin-medium-bottom header-come-back">
+            <div>LA PROD et MISKINE présentent</div>
+            <h1>Pierre-Emmanuel Barré</h1>
+            <div>dans</div>
+        </div>
+        <div class="uk-position-bottom">
+            <div class="uk-margin-bottom title-come-back">
+                <h2>COME-BACK</h2>
+                <div>Une pièce de Pierre-Emmanuel Barré et Arsen</div>
+            </div>
+            <div class="uk-margin-medium-bottom nova">
+                <img src="{{ asset('img/radio-nova.png') }}" alt="Logo Radio Nova">
+            </div>
+        </div>
+    </div>
+    <div class="uk-container uk-container-large bkg-dark uk-hidden@m">
+        <div class="uk-text-center uk-margin-medium-top">
+            <div class="uk-margin-medium-bottom focus">
+                <div class="">
+                    <a href="https://pierreemmanuelbarre.francebillet.com/artist/pierre-emmanuel-barre/pierre-emmanuel-barre-come-back-le-bataclan-paris-3796884/" target="_blank">
+                    <img class="bataclan" src="{{ asset('home/bataclan.png') }}" alt="Logo Bataclan">
+                    </a>
+
+                    <div class="uk-margin-top uk-margin-small-bottom">
+                        <div class="uk-inline">
+                            <div class="dates-bataclan">
+                                29-30-31 oct. 2026
+                            </div>
+                            <div class="complet uk-position-center" style="top:3px">
+                                COMPLET
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-margin-small-bottom">
+                        <div class="uk-inline">
+                            <div class="dates-bataclan">
+                                16-17-18 avril 2026
+                            </div>
+                            <div class="dates-bataclan">
+                                & 14-15-16 mai 2026
+                            </div>
+                            <div class="complet uk-position-center">
+                                COMPLET
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-inline">
+                            <div class="dates-bataclan">
+                                11-12-13 & 18-19-20
+                            </div>
+                            <div class="mois-bataclan">
+                                DECEMBRE 2025
+                            </div>
+                            <div class="complet uk-position-center">
+                                COMPLET
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="uk-margin-medium-bottom tour">
+                <div><i>EN TOURNée</i></div>
+                <div>
+                    <a class="link" href="https://pebarre.bleucitron.net/" aria-label="Ouvre la page Tournée dans un nouvel onglet" target="_blank">
+                        Toutes les dates <i class="uk-margin-small-left fa-sharp fa-regular fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <!--- MOBILE VIEW - END -->
+
+</div>
+
+<div class="uk-section home-slider">
+    <div class="uk-container uk-container-expand">
+
+        <div class="heading uk-margin-medium-bottom uk-flex uk-flex-center uk-flex-middle">
+            <div class="uk-grid-small" uk-grid>
+                <div class="logo uk-width-auto@m uk-text-center uk-text-left@m">
+                    <img src="{{ asset('img/radio-nova.png') }}" alt="Logo Radio Nova">
+                </div>
+                <div class="uk-width-auto@m uk-text-center uk-text-left@m">
+                    <h3>
+                        Pierre-Emmanuel Barré<br/>
+                        dans «La dernière»
+                    <h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="uk-position-relative uk-visible-toggle" tabindex="-1" uk-slider>
+
+            <div class="uk-slider-items uk-child-width-3-4 uk-child-width-1-4@m uk-grid uk-grid-match">
+
+                <div class="uk-width-3-4 uk-width-1-2@s uk-width-1-4@m uk-text-center">
+                    <a href="https://youtu.be/ttBDke_yfLo" target="_blank" aria-label="Ouvre la vidéo de Pierre-Emmanuel Barré dans La dernière sur Radio Nova dans un nouvel onglet">
+                        <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                            <img src="https://img.youtube.com/vi/ttBDke_yfLo/maxresdefault.jpg" width="1059" height="596" alt="Vidéo de Pierre-Emmanuel Barré dans La dernière sur Radio Nova">
+                            <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+                                <i class="play fa-sharp fa-thin fa-circle-play"></i>
+                            </div>
+                        </div>
+                    </a>
+                    <p class="uk-text-left uk-margin-small-top">
+                        Un Oscar pour Macron - La grosse semaine de Pierre-Emmanuel Barré
+                    </p>
+                </div>
+
+                <div class="uk-width-3-4 uk-width-1-2@s uk-width-1-4@m uk-text-center">
+                    <a href="https://youtu.be/CDvam843WWE" target="_blank" aria-label="Ouvre la vidéo de Pierre-Emmanuel Barré dans La dernière sur Radio Nova dans un nouvel onglet">
+                        <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                            <img src="https://img.youtube.com/vi/CDvam843WWE/maxresdefault.jpg" width="1059" height="596" alt="Vidéo de Pierre-Emmanuel Barré dans La dernière sur Radio Nova">
+                            <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+                                <i class="play fa-sharp fa-thin fa-circle-play"></i>
+                            </div>
+                        </div>
+                    </a>
+                    <p class="uk-text-left uk-margin-small-top">
+                        Tirer la chasse - La grosse semaine de Pierre-Emmanuel Barré
+                    </p>
+                </div>
+
+                <div class="uk-width-3-4 uk-width-1-2@s uk-width-1-4@m uk-text-center">
+                    <a href="https://youtu.be/2CCMsJsZo7E" target="_blank" aria-label="Ouvre la vidéo de Pierre-Emmanuel Barré dans La dernière sur Radio Nova dans un nouvel onglet">
+                        <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                            <img src="https://img.youtube.com/vi/2CCMsJsZo7E/maxresdefault.jpg" width="1059" height="596" alt="Vidéo de Pierre-Emmanuel Barré dans La dernière sur Radio Nova">
+                            <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+                                <i class="play fa-sharp fa-thin fa-circle-play"></i>
+                            </div>
+                        </div>
+                    </a>
+                    <p class="uk-text-left uk-margin-small-top">
+                        Police partout, racisme aussi - La grosse semaine de Pierre-Emmanuel Barré
+                    </p>
+                </div>
+
+                <div class="uk-width-3-4 uk-width-1-2@s uk-width-1-4@m uk-text-center">
+                    <a href="https://youtu.be/DCBWfBlwQqs" target="_blank" aria-label="Ouvre la vidéo de Pierre-Emmanuel Barré dans La dernière sur Radio Nova dans un nouvel onglet">
+                        <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                            <img src="https://img.youtube.com/vi/DCBWfBlwQqs/maxresdefault.jpg" width="1059" height="596" alt="Vidéo de Pierre-Emmanuel Barré dans La dernière sur Radio Nova">
+                            <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+                                <i class="play fa-sharp fa-thin fa-circle-play"></i>
+                            </div>
+                        </div>
+                    </a>
+                    <p class="uk-text-left uk-margin-small-top">
+                        Arrêtons Mélenchon ! - La grosse semaine de Pierre-Emmanuel Barré
+                    </p>
+                </div>
+
+                <div class="uk-width-3-4 uk-width-1-2@s uk-width-1-4@m uk-text-center">
+                    <a href="https://youtu.be/w5d7Yr1O_x0" target="_blank" aria-label="Ouvre la vidéo de Pierre-Emmanuel Barré dans La dernière sur Radio Nova dans un nouvel onglet">
+                        <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                            <img src="https://img.youtube.com/vi/w5d7Yr1O_x0/maxresdefault.jpg" width="1059" height="596" alt="Vidéo de Pierre-Emmanuel Barré dans La dernière sur Radio Nova">
+                            <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+                                <i class="play fa-sharp fa-thin fa-circle-play"></i>
+                            </div>
+                        </div>
+                    </a>
+                    <p class="uk-text-left uk-margin-small-top">
+                        Permis de tuer - La chronique de Pierre-Emmanuel Barré
+                    </p>
+                </div>
+
+                <div class="uk-width-3-4 uk-width-1-2@s uk-width-1-4@m uk-text-center">
+                    <a href="https://youtu.be/l0C3svmX6z4" target="_blank" aria-label="Ouvre la vidéo de Pierre-Emmanuel Barré dans La dernière sur Radio Nova dans un nouvel onglet">
+                        <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                            <img src="https://img.youtube.com/vi/l0C3svmX6z4/maxresdefault.jpg" width="1059" height="596" alt="Vidéo de Pierre-Emmanuel Barré dans La dernière sur Radio Nova">
+                            <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+                                <i class="play fa-sharp fa-thin fa-circle-play"></i>
+                            </div>
+                        </div>
+                    </a>
+                    <p class="uk-text-left uk-margin-small-top">
+                        Le baccalauréat - La chronique de Pierre-Emmanuel Barré
+                    </p>
+                </div>
+
+                <div class="uk-width-3-4 uk-width-1-2@s uk-width-1-4@m uk-text-center">
+                    <a href="https://youtu.be/8IYzoM0LFkA" target="_blank" aria-label="Ouvre la vidéo de Pierre-Emmanuel Barré dans La dernière sur Radio Nova dans un nouvel onglet">
+                        <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                            <img src="https://img.youtube.com/vi/8IYzoM0LFkA/maxresdefault.jpg" width="1059" height="596" alt="Vidéo de Pierre-Emmanuel Barré dans La dernière sur Radio Nova">
+                            <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+                                <i class="play fa-sharp fa-thin fa-circle-play"></i>
+                            </div>
+                        </div>
+                    </a>
+                    <p class="uk-text-left uk-margin-small-top">
+                        Toute l'actu ! - La chronique de Pierre-Emmanuel Barré
+                    </p>
+                </div>
+
+                <div class="uk-width-3-4 uk-width-1-2@s uk-width-1-4@m uk-text-center">
+                    <a href="https://youtu.be/C2jHPTXK2Tg" target="_blank" aria-label="Ouvre la vidéo de Pierre-Emmanuel Barré dans La dernière sur Radio Nova dans un nouvel onglet">
+                        <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                            <img src="https://img.youtube.com/vi/C2jHPTXK2Tg/maxresdefault.jpg" width="1059" height="596" alt="Vidéo de Pierre-Emmanuel Barré dans La dernière sur Radio Nova">
+                            <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+                                <i class="play fa-sharp fa-thin fa-circle-play"></i>
+                            </div>
+                        </div>
+                    </a>
+                    <p class="uk-text-left uk-margin-small-top">
+                        Un peu d'Histoire - La chronique de Pierre-Emmanuel Barré
+                    </p>
+                </div>
+
+            </div>
+
+            <a class="uk-position-center-left uk-position-small uk-hidden-hover uk-visible@s" href uk-slidenav-previous uk-slider-item="previous"><i class="fa-sharp fa-solid fa-circle-chevron-left"></i></a>
+            <a class="uk-position-center-right uk-position-small uk-hidden-hover uk-visible@s" href uk-slidenav-next uk-slider-item="next"><i class="fa-sharp fa-solid fa-circle-chevron-right"></i></a>
+
+        </div>
+
+        <div class="uk-margin-medium-top uk-text-center">
+            <a class="link" href="{{ path('nova') }}" aria-label="Ouvre la page de toutes les vidéos">
+                Toutes les vidéos <i class="uk-margin-small-left fa-sharp fa-regular fa-arrow-right"></i>
+            </a>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
