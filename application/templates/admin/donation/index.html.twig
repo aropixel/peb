@@ -1,0 +1,28 @@
+{% extends '@AropixelAdmin/List/datatable.html.twig' %}
+{% import '@AropixelAdmin/Macro/breadcrumb.html.twig' as nav %}
+
+{% block meta_title %}Dons{% endblock %}
+
+{% block header_title %}Dons{% endblock %}
+
+{% block header_breadcrumb %}
+    {{ nav.breadcrumbs([
+        {label: 'text.home'|trans, url: url('_admin')},
+        {label: 'Dons'},
+    ]) }}
+{% endblock %}
+
+{% block header_top_right %}
+    <div class="btn-group">
+        <a href="{{ path('admin_donation_export', {status: 'paid'}) }}" class="btn btn-small btn-primary">
+            {{ ux_icon('lucide:download', {class: 'me-2'}) }}Exporter les dons payés
+        </a>
+        <button type="button" class="btn btn-small btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Autres exports"></button>
+        <div class="dropdown-menu dropdown-menu-end">
+            <a class="dropdown-item" href="{{ path('admin_donation_export') }}">Tous les dons</a>
+            {% for status in statuses %}
+                <a class="dropdown-item" href="{{ path('admin_donation_export', {status: status.value}) }}">{{ status.label }}</a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

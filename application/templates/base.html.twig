@@ -64,6 +64,7 @@
                             <li {% if app.request.attributes.get('_route') == 'nova' %}class="uk-active"{% endif %}><a href="{{ path('nova') }}" aria-label="Ouvre la page La Dernière" class="nav-link nav-link-ltr">La dernière</a></li>
                             <li><a href="https://enlyseeboutique.fr/pages/la-boutique-de-saint-roustan" target="_blank" aria-label="Ouvre la page boutique dans un nouvel onglet" class="nav-link nav-link-ltr">Boutique</a></li>
                             <li {% if app.request.attributes.get('_route') == 'contacts' %}class="uk-active"{% endif %}><a href="{{ path('contacts') }}" aria-label="Ouvre la page Contacts" class="nav-link nav-link-ltr">Contacts</a></li>
+                            <li {% if app.request.attributes.get('_route') starts with 'donation' %}class="uk-active"{% endif %}><a href="{{ path('donation') }}" aria-label="Ouvre la page Faire un don" class="nav-link nav-link-ltr">Faire un don</a></li>
                         </ul>
                         <ul class="uk-navbar-nav uk-hidden@m">
                             <li><a href="#modal-menu" class="burger" aria-label="Ouvre le menu mobile" uk-toggle><i class="grow fa-sharp fa-solid fa-bars"></i></a></li>

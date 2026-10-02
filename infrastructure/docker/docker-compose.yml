@@ -88,6 +88,16 @@ services:
         profiles:
             - default
 
+    # Relais des webhooks Stripe vers l'application en local : castor stripe:listen
+    stripe:
+        image: stripe/stripe-cli:latest
+        environment:
+            - STRIPE_API_KEY
+        depends_on:
+            - frontend
+        profiles:
+            - stripe
+
     worker_messenger:
         <<: *worker_base
         command: php -d memory_limit=1G /var/www/application/bin/console messenger:consume async --memory-limit=256M

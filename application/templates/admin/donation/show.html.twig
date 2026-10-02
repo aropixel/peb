@@ -1,0 +1,69 @@
+{% extends '@AropixelAdmin/base.html.twig' %}
+{% import '@AropixelAdmin/Macro/breadcrumb.html.twig' as nav %}
+
+{% block meta_title %}Don {{ donation.reference }}{% endblock %}
+
+{% block header_title %}Don {{ donation.reference }}{% endblock %}
+
+{% block header_breadcrumb %}
+    {{ nav.breadcrumbs([
+        {label: 'text.home'|trans, url: url('_admin')},
+        {label: 'Dons', url: path('admin_donation_index')},
+        {label: donation.reference},
+    ]) }}
+{% endblock %}
+
+{% block header_top_right %}
+    {% if donation.stripePaymentIntentId %}
+        <a href="https://dashboard.stripe.com/payments/{{ donation.stripePaymentIntentId }}" target="_blank" rel="noopener" class="btn btn-small btn-primary">
+            {{ ux_icon('lucide:external-link', {class: 'me-2'}) }}Voir dans Stripe
+        </a>
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    <div class="card card-centered card-centered-large">
+        <div class="card-body">
+            <dl class="row mb-0">
+                <dt class="col-sm-4">Statut</dt>
+                <dd class="col-sm-8">{{ include('admin/donation/_status.html.twig', {item: donation}) }}</dd>
+
+                <dt class="col-sm-4">Montant</dt>
+                <dd class="col-sm-8">{{ donation.amount|cents }}</dd>
+
+                {% if donation.amountRefunded > 0 %}
+                    <dt class="col-sm-4">Remboursé</dt>
+                    <dd class="col-sm-8">{{ donation.amountRefunded|cents }} le {{ donation.refundedAt|date('d/m/Y H:i') }}</dd>
+                {% endif %}
+
+                <dt class="col-sm-4">Donateur</dt>
+                <dd class="col-sm-8">{{ donation.fullName }}</dd>
+
+                <dt class="col-sm-4">Email</dt>
+                <dd class="col-sm-8"><a href="mailto:{{ donation.email }}">{{ donation.email }}</a></dd>
+
+                <dt class="col-sm-4">Message</dt>
+                <dd class="col-sm-8">{{ donation.message ? donation.message|nl2br : '—' }}</dd>
+
+                <dt class="col-sm-4">Moyen de paiement</dt>
+                <dd class="col-sm-8">{{ donation.paymentMethod ?? '—' }}</dd>
+
+                <dt class="col-sm-4">Créé le</dt>
+                <dd class="col-sm-8">{{ donation.createdAt|date('d/m/Y H:i') }}</dd>
+
+                <dt class="col-sm-4">Payé le</dt>
+                <dd class="col-sm-8">{{ donation.paidAt ? donation.paidAt|date('d/m/Y H:i') : '—' }}</dd>
+
+                <dt class="col-sm-4">Session Stripe</dt>
+                <dd class="col-sm-8"><code>{{ donation.stripeCheckoutSessionId ?? '—' }}</code></dd>
+
+                <dt class="col-sm-4">Paiement Stripe</dt>
+                <dd class="col-sm-8"><code>{{ donation.stripePaymentIntentId ?? '—' }}</code></dd>
+            </dl>
+
+            <p class="text-muted small mt-4 mb-0">
+                Pour rembourser un don, passez par le dashboard Stripe : le statut se mettra à jour ici automatiquement.
+            </p>
+        </div>
+    </div>
+{% endblock %}

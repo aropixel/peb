@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Faire un don | Pierre-Emmanuel Barré{% endblock %}
+
+{% block content %}
+<div class="uk-section heading">
+    <div class="uk-container uk-container-xsmall uk-text-center">
+        <h1>Faire un don</h1>
+    </div>
+</div>
+
+<div class="uk-section main-content donation">
+    <div class="uk-container uk-container-xsmall">
+
+        {% if cancelled %}
+            <div class="uk-alert uk-alert-warning" uk-alert>
+                <p>Le paiement a été annulé : aucun montant n'a été débité. Vous pouvez réessayer quand vous voulez.</p>
+            </div>
+        {% endif %}
+
+        {% for message in app.flashes('error') %}
+            <div class="uk-alert uk-alert-danger" uk-alert><p>{{ message }}</p></div>
+        {% endfor %}
+
+        {{ form_start(form, {attr: {class: 'uk-form-stacked', 'data-controller': 'donation-amount', novalidate: 'novalidate'}}) }}
+
+            <fieldset class="uk-fieldset uk-margin-medium-bottom">
+                <legend class="uk-legend">{{ form.amount.vars.label }}</legend>
+                <div class="donation-amounts">
+                    {% for choice in form.amount %}
+                        <label class="donation-amount">
+                            {{ form_widget(choice, {attr: {class: 'uk-radio', 'data-action': 'donation-amount#toggle', 'data-donation-amount-target': 'choice'}}) }}
+                            <span>{{ choice.vars.label }}</span>
+                        </label>
+                    {% endfor %}
+                </div>
+                {{ form_errors(form.amount) }}
+
+                <div class="uk-margin" data-donation-amount-target="custom">
+                    {{ form_label(form.customAmount, null, {label_attr: {class: 'uk-form-label'}}) }}
+                    {{ form_widget(form.customAmount, {attr: {class: 'uk-input'}}) }}
+                    {{ form_errors(form.customAmount) }}
+                </div>
+            </fieldset>
+
+            <div class="uk-grid-small uk-child-width-1-2@s" uk-grid>
+                {% for field in [form.firstName, form.lastName] %}
+                    <div>
+                        {{ form_label(field, null, {label_attr: {class: 'uk-form-label'}}) }}
+                        {{ form_widget(field, {attr: {class: 'uk-input'}}) }}
+                        {{ form_errors(field) }}
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="uk-margin">
+                {{ form_label(form.email, null, {label_attr: {class: 'uk-form-label'}}) }}
+                {{ form_widget(form.email, {attr: {class: 'uk-input'}}) }}
+                {{ form_errors(form.email) }}
+            </div>
+
+            <div class="uk-margin">
+                {{ form_label(form.message, null, {label_attr: {class: 'uk-form-label'}}) }}
+                {{ form_widget(form.message, {attr: {class: 'uk-textarea'}}) }}
+                {{ form_errors(form.message) }}
+            </div>
+
+            <div class="uk-margin">
+                <label>
+                    {{ form_widget(form.consent, {attr: {class: 'uk-checkbox uk-margin-small-right'}}) }}
+                    {{ form.consent.vars.label }}
+                </label>
+                {{ form_errors(form.consent) }}
+                <p class="uk-text-small">
+                    Voir notre <a href="{{ path('politique_confidentialite') }}">politique de confidentialité</a>.
+                </p>
+            </div>
+
+            <div class="uk-margin-medium uk-text-center bt-std">
+                <button type="submit" class="uk-button uk-button-default">
+                    <i class="fa-sharp fa-solid fa-lock uk-margin-small-right"></i> Continuer vers le paiement
+                </button>
+                <p class="uk-text-small uk-margin-small-top">Paiement sécurisé par Stripe : carte bancaire, Apple Pay, Google Pay ou PayPal.</p>
+            </div>
+
+        {{ form_end(form) }}
+
+    </div>
+</div>
+{% endblock %}

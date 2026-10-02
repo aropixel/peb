@@ -762,3 +762,43 @@ a.crypted:after {
     display: block;
     max-height: 85vh;
 }
+
+/**** DONS ****/
+.donation .uk-legend,
+.donation .uk-form-label {
+    color: #ffffff;
+    font-family: 'pebbold';
+}
+.donation-amounts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+.donation-amount input {
+    position: absolute;
+    opacity: 0;
+}
+.donation-amount span {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid #ffffff;
+    font-family: 'pebblack';
+    cursor: pointer;
+}
+.donation-amount input:checked + span,
+.donation-amount span:hover {
+    background-color: #ffffff;
+    color: var(--blue-dark);
+}
+.donation-amount input:focus-visible + span {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+.donation ul {
+    color: #ffb4b4;
+    list-style: none;
+    padding: 0;
+    margin: 5px 0 0;
+}
+/**** DONS - END ****/

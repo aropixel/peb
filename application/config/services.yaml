@@ -21,3 +21,10 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+when@test:
+    services:
+        # Aucun appel à l'API Stripe pendant les tests
+        App\Tests\Double\FakePaymentGateway:
+            public: true
+        App\Component\Donation\PaymentGateway: '@App\Tests\Double\FakePaymentGateway'

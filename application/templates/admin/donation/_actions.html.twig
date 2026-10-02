@@ -1,0 +1,7 @@
+{% import '@AropixelAdmin/Macro/actions.html.twig' as list %}
+{% set extra %}
+    {% if item.stripePaymentIntentId %}
+        <a href="https://dashboard.stripe.com/payments/{{ item.stripePaymentIntentId }}" target="_blank" rel="noopener" class="dropdown-item">{{ ux_icon('lucide:external-link') }} Voir dans Stripe</a>
+    {% endif %}
+{% endset %}
+{{ list.actions(item, path('admin_donation_show', {id: item.id}), null, extra: extra) }}

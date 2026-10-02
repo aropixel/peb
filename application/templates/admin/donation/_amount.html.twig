@@ -1,0 +1,4 @@
+{{ item.amount|cents }}
+{% if item.amountRefunded > 0 and item.amountRefunded < item.amount %}
+    <div class="small text-muted">dont {{ item.amountRefunded|cents }} remboursés</div>
+{% endif %}

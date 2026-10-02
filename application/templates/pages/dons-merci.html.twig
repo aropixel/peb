@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Merci pour votre don | Pierre-Emmanuel Barré{% endblock %}
+
+{% block content %}
+<div class="uk-section heading">
+    <div class="uk-container uk-container-xsmall uk-text-center">
+        <h1>Merci {{ donation.firstName }} !</h1>
+    </div>
+</div>
+
+<div class="uk-section main-content donation">
+    <div class="uk-container uk-container-xsmall uk-text-center">
+        <p>
+            Votre don de <strong>{{ donation.amount|cents }}</strong>
+            {{ donation.paid ? 'a bien été reçu.' : 'est en cours de validation.' }}
+        </p>
+        <p>
+            Un email de confirmation vous est envoyé à <strong>{{ donation.email }}</strong>.<br>
+            Votre référence : <strong>{{ donation.reference }}</strong>
+        </p>
+        <div class="uk-margin-medium bt-std">
+            <a href="{{ path('home') }}" class="uk-button uk-button-default">Retour à l'accueil</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

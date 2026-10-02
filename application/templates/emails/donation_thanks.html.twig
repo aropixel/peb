@@ -1,0 +1,13 @@
+<p>Bonjour {{ donation.firstName }},</p>
+
+<p>
+    Merci pour votre don de <strong>{{ donation.amount|cents }}</strong>,
+    bien reçu le {{ donation.paidAt|date('d/m/Y') }}.
+</p>
+
+<p>
+    Votre référence : <strong>{{ donation.reference }}</strong>.<br>
+    Gardez-la précieusement : elle vous sera demandée pour toute question sur votre don.
+</p>
+
+<p>Pierre-Emmanuel Barré</p>

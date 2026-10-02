@@ -33,6 +33,7 @@ class CustomAdminMenuBuilder implements AdminMenuBuilderInterface
     {
         $menu = new Menu('content', 'Contenu');
         $menu->addItem(new Link('Popins', 'admin_popin_index'));
+        $menu->addItem(new Link('Dons', 'admin_donation_index'));
 
         return $menu;
     }
