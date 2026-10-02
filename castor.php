@@ -2,6 +2,7 @@
 
 use Castor\Attribute\AsTask;
 
+use function Castor\context;
 use function Castor\guard_min_version;
 use function Castor\import;
 use function Castor\io;
@@ -50,6 +51,7 @@ function start(): void
     install();
     up(profiles: ['default']); // We can't start worker now, they are not installed
     migrate();
+    create_admin();
     // workers_start();
 
     notify('The stack is now up and running.');
@@ -124,10 +126,30 @@ function cache_warmup(): void
 #[AsTask(description: 'Migrates database schema', namespace: 'app:db', aliases: ['migrate'])]
 function migrate(): void
 {
-    // io()->title('Migrating the database schema');
+    io()->title('Migrating the database schema');
 
-    // docker_compose_run(['bin/console', 'doctrine:database:create', '--if-not-exists']);
-    // docker_compose_run(['bin/console', 'doctrine:migration:migrate', '-n', '--allow-no-migration', '--all-or-nothing']);
+    docker_compose_run(['bin/console', 'doctrine:database:create', '--if-not-exists']);
+    docker_compose_run(['bin/console', 'doctrine:migration:migrate', '-n', '--allow-no-migration', '--all-or-nothing']);
+}
+
+#[AsTask(description: 'Creates the admin/admin back-office user if missing (dev only)', namespace: 'app:db', aliases: ['admin'])]
+function create_admin(): void
+{
+    io()->title('Creating the admin user');
+
+    $existing = docker_compose_run(
+        ['bin/console', 'dbal:run-sql', "SELECT id FROM aropixel_admin_user WHERE email = 'admin'"],
+        c: context()->withQuiet(),
+    );
+
+    if (!str_contains($existing->getOutput(), 'empty result')) {
+        io()->note('The admin user already exists.');
+
+        return;
+    }
+
+    // Without --login/--password, the bundle creates admin/admin, and refuses to outside of dev.
+    docker_compose_run(['bin/console', 'aropixel:admin:create-user', '-n']);
 }
 
 #[AsTask(description: 'Loads fixtures', namespace: 'app:db', aliases: ['fixtures'])]

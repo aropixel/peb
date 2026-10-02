@@ -1,0 +1,92 @@
+{% extends '@AropixelAdmin/Form/base.html.twig' %}
+{% import '@AropixelAdmin/Macro/breadcrumb.html.twig' as nav %}
+{% import '@AropixelAdmin/Macro/forms.html.twig' as forms %}
+
+{% set title = popin.id ? popin.title : 'Ajouter une popin' %}
+
+{% block meta_title %}{{ title }}{% endblock %}
+{% block header_title %}{{ title }}{% endblock %}
+
+{% block header_breadcrumb %}
+    {{ nav.breadcrumbs([
+        {label: 'text.home'|trans, url: url('_admin')},
+        {label: 'Popins', url: path('admin_popin_index')},
+        {label: popin.id ? 'text.edit'|trans : 'text.add'|trans},
+    ]) }}
+{% endblock %}
+
+{% block tabbable %}
+    {{ forms.tabs([
+        {id: 'panel-tab-popin', label: 'Popin'},
+        {id: 'panel-tab-display', label: 'Affichage'},
+    ]) }}
+{% endblock %}
+
+{% block mainPanel %}
+    <div class="tab-pane active" id="panel-tab-popin">
+        <div class="card card-centered card-centered-large">
+            <div class="card-body">
+                {{ form_row(form.title) }}
+                {{ form_row(form.type) }}
+
+                <div data-popin-type="content">
+                    {{ form_row(form.content) }}
+                </div>
+
+                <div data-popin-type="image">
+                    {{ form_row(form.image) }}
+                </div>
+
+                {{ form_row(form.link) }}
+
+                <div data-popin-type="content">
+                    {{ form_row(form.linkLabel) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane" id="panel-tab-display">
+        <div class="card card-centered card-centered-large">
+            <div class="card-body">
+                {{ form_row(form.forceDisplay) }}
+                <p class="text-muted small">
+                    Par défaut, un visiteur ne voit la popin qu'une seule fois (cookie de 1 an).
+                    Modifier la popin la réaffiche à tous.
+                </p>
+
+                <hr>
+
+                {{ form_row(form.displayAll) }}
+
+                <div id="popin-urls">
+                    {{ form_row(form.urls) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const typeInputs = document.querySelectorAll('input[name="{{ form.type.vars.full_name }}"]');
+            const displayAll = document.getElementById('{{ form.displayAll.vars.id }}');
+            const urls = document.getElementById('popin-urls');
+
+            const toggleType = () => {
+                const type = document.querySelector('input[name="{{ form.type.vars.full_name }}"]:checked')?.value;
+                document.querySelectorAll('[data-popin-type]').forEach((el) => {
+                    el.hidden = el.dataset.popinType !== type;
+                });
+            };
+            const toggleUrls = () => { urls.hidden = displayAll.checked; };
+
+            typeInputs.forEach((input) => input.addEventListener('change', toggleType));
+            displayAll.addEventListener('change', toggleUrls);
+            toggleType();
+            toggleUrls();
+        });
+    </script>
+{% endblock %}

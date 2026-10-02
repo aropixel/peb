@@ -1,0 +1,36 @@
+{% set popin = current_popin() %}
+
+{% if popin %}
+    <div id="modal-default"
+         class="uk-flex-top{{ popin.image ? ' popin-image' }}"
+         uk-modal="container: false"
+         data-controller="popin"
+         data-popin-cookie-name-value="{{ popin.cookieName }}"
+         data-popin-cookie-value-value="{{ popin.cookieValue }}"
+         data-popin-force-value="{{ popin.forceDisplay ? 'true' : 'false' }}">
+        <div class="uk-modal-dialog uk-margin-auto-vertical">
+            {% if popin.image %}
+                <button class="uk-modal-close-outside" type="button" uk-close aria-label="Fermer"></button>
+                {% set img %}
+                    <img src="{{ popin.image|aropixel_imagine_filter('popin') }}" alt="{{ popin.image.attrAlt ?: popin.title }}">
+                {% endset %}
+                {% if popin.link %}
+                    <a href="{{ popin.link }}" target="_blank" rel="noopener">{{ img }}</a>
+                {% else %}
+                    {{ img }}
+                {% endif %}
+            {% else %}
+                <button class="uk-modal-close-default" type="button" uk-close aria-label="Fermer"></button>
+                <div class="uk-modal-body">
+                    <h2>{{ popin.title }}</h2>
+                    <div class="uk-margin">{{ popin.content|raw }}</div>
+                    {% if popin.link %}
+                        <p class="uk-text-center">
+                            <a href="{{ popin.link }}" target="_blank" rel="noopener" class="uk-button uk-button-primary">{{ popin.linkLabel ?: 'En savoir plus' }}</a>
+                        </p>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endif %}

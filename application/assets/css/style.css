@@ -753,4 +753,12 @@ a.crypted:after {
 #modal-default .uk-button-primary:hover {
     background-color: var(--blue-dark);
     color: #fff;
+}#modal-default.popin-image .uk-modal-dialog {
+    width: auto;
+    max-width: min(90vw, 600px);
+    background: transparent;
+}
+#modal-default.popin-image img {
+    display: block;
+    max-height: 85vh;
 }

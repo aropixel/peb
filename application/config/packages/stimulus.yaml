@@ -1,0 +1,5 @@
+stimulus:
+    # aropixel/page-bundle déclare son propre chemin, ce qui remplace le chemin par défaut :
+    # on le redéclare pour que les contrôleurs de assets/controllers soient chargés.
+    controller_paths:
+        - '%kernel.project_dir%/assets/controllers'

@@ -1,0 +1,8 @@
+{% import '@AropixelAdmin/Macro/actions.html.twig' as list %}
+{{ list.actions(
+    item,
+    path('admin_popin_edit', {id: item.id}),
+    path('admin_popin_delete', {id: item.id}),
+    'Supprimer cette popin ?',
+    delete_token: csrf_token('delete__popin' ~ item.id),
+) }}

@@ -1,0 +1,5 @@
+{% if not item.isPublished %}
+    <span class="badge text-bg-secondary">{{ item.isScheduleIncoming and item.status == 'online' ? 'Programmée' : 'Hors ligne' }}</span>
+{% else %}
+    <span class="badge text-bg-success">En ligne</span>
+{% endif %}

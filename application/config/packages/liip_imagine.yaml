@@ -23,3 +23,11 @@ liip_imagine:
                 thumbnail:
                     size: [ 1200, 800 ]
                     mode: inset
+        popin:
+            jpeg_quality: 85
+            png_compression_level: 4
+            filters:
+                strip: ~
+                thumbnail:
+                    size: [ 800, 1200 ]
+                    mode: inset

@@ -18,3 +18,9 @@
 /public/assets/
 /assets/vendor/
 ###< symfony/asset-mapper ###
+
+###> aropixel/admin-bundle ###
+# Médias uploadés depuis l'admin et leurs déclinaisons Liip Imagine
+/private/
+/public/media/
+###< aropixel/admin-bundle ###

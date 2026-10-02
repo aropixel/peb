@@ -1,0 +1,6 @@
+{% if item.publishAt or item.publishUntil %}
+    {{ item.publishAt ? 'du ' ~ item.publishAt|date('d/m/Y H:i') }}
+    {{ item.publishUntil ? 'au ' ~ item.publishUntil|date('d/m/Y H:i') }}
+{% else %}
+    —
+{% endif %}
